@@ -1,3 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+import { Router } from "express";
+import { addCategory, deleteCategory, getCategories, updateCategory } from "../controller/catgeory.controller.js";
+import { adminMiddleware } from "../middleware/admin.middleware.js";
+import { authMiddleware } from "../middleware/auth.middlewar.js";
+const categoryRouter = Router();
+categoryRouter.get("/get_all_category", getCategories);
+categoryRouter.post("/add_category", authMiddleware, adminMiddleware, addCategory);
+categoryRouter.put("/update_category/:id", authMiddleware, adminMiddleware, updateCategory);
+categoryRouter.delete("/delete_category/:id", authMiddleware, adminMiddleware, deleteCategory);
+export default categoryRouter;
 //# sourceMappingURL=category.routes.js.map

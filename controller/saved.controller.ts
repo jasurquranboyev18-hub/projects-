@@ -4,7 +4,7 @@ import Saved from "../model/saved.model.js";
 import { Product } from "../model/product.model.js";
 
 
-Saved.sync({force: false})
+// Saved.sync({force: false})
 
 export const saved = async (req: Request, res: Response) => {
   const user = (req as any).user;
